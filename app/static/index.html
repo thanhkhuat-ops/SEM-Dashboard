@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SaleSappV2 · Ads</title>
+<link rel="stylesheet" href="/static/styles.css?v=20261108b">
+</head>
+<body>
+<a class="skip" href="#content">Bỏ qua tới nội dung báo cáo</a>
+<header class="top">
+  <h1 class="brand">SaleSappV2 <span id="brand-channel">Amazon Ads</span></h1>
+  <div class="channels" id="channels" role="group" aria-label="Kênh">
+    <button type="button" data-channel="all">Tổng hợp</button>
+    <button type="button" data-channel="amazon">Amazon</button>
+    <button type="button" data-channel="wayfair">Wayfair</button>
+    <button type="button" data-channel="shopify">Shopify</button>
+    <button type="button" data-channel="matrix">Matrix Chart</button>
+    <button type="button" data-channel="inventory">Tồn kho</button>
+    <button type="button" data-channel="notify">Gửi tin PIC</button>
+  </div>
+  <div class="fresh" id="freshness"></div>
+</header>
+
+<section class="filters" id="filters" aria-label="Bộ lọc">
+  <button type="button" id="f-toggle" class="f-toggle" aria-expanded="false" aria-controls="filters-body">
+    <span>Bộ lọc</span> <span id="f-summary" class="muted"></span> <span aria-hidden="true">▾</span></button>
+  <div id="filters-body">
+  <div class="row">
+    <label class="date-ctl">Từ <input type="date" id="f-start"></label>
+    <label class="date-ctl">Đến <input type="date" id="f-end"></label>
+    <select id="f-preset" class="date-ctl" title="Khoảng thời gian nhanh" aria-label="Khoảng thời gian nhanh">
+      <option value="">Chọn nhanh…</option>
+      <option value="7">7 ngày qua</option>
+      <option value="14">14 ngày qua</option>
+      <option value="30">30 ngày qua</option>
+      <option value="60">60 ngày qua</option>
+      <option value="90">90 ngày qua</option>
+      <option value="mtd">Tháng này</option>
+      <option value="lm">Tháng trước</option>
+    </select>
+    <div class="ms amz-only" data-param="profile_id" data-label="Tài khoản"></div>
+    <div class="ms amz-only" data-param="ad_type" data-label="Loại QC"></div>
+    <div class="ms amz-only" data-param="portfolio_id" data-label="Portfolio"></div>
+    <div class="ms wf-only" data-param="wf_account" data-label="Tài khoản"></div>
+    <div class="ms all-only" data-param="sales_channel" data-label="Kênh"></div>
+    <div class="ms mkt-only" data-param="market" data-label="Nước"></div>
+    <div class="ms" data-param="pic" data-label="PIC"></div>
+    <div class="ms" data-param="group_id" data-label="Nhóm SP"></div>
+    <div class="ms" data-param="brand_id" data-label="Brand"></div>
+    <input type="search" id="f-campaign" class="ads-only" placeholder="Tên campaign chứa…" aria-label="Tên campaign chứa (Enter để xem)">
+    <label class="inv-only" title="Quy đổi số lượng ra container 40HQ theo thể tích từng sản phẩm">Đơn vị
+      <select id="f-qty-unit"><option value="unit">Units</option><option value="cont">Container 40HQ</option></select></label>
+  </div>
+  <div class="row kw-only">
+    <div class="ms amz-only" data-param="match_type" data-label="Match type"></div>
+    <div class="ms wf-only" data-param="match_type" data-key="wf_match_type" data-label="Match type"></div>
+    <div class="ms" data-param="term_class" data-label="Phân nhóm KW"></div>
+    <div class="ms" data-param="length_bucket" data-label="Số từ"></div>
+  </div>
+  <div class="row actions">
+    <button id="btn-apply" class="primary">Xem báo cáo</button>
+    <button id="btn-export">Xuất HTML</button>
+    <span class="hint" id="hint"></span>
+  </div>
+  </div>
+</section>
+
+<nav class="tabs" id="tabs" aria-label="Báo cáo"></nav>
+<section class="controls" id="controls" aria-label="Tùy chọn của báo cáo"></section>
+<main id="content" tabindex="-1"><p class="muted">Đang tải…</p></main>
+<div id="live" class="sr-only" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="/static/app.js?v=20261108e"></script>
+</body>
+</html>

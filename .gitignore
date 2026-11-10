@@ -1,0 +1,37 @@
+# Bí mật / cấu hình máy: chỉ commit .env.example
+.env
+.env.*
+!.env.example
+# Khóa service account Google (GOOGLE_SA_JSON) và các file khóa khác
+*service-account*.json
+*-sa.json
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dữ liệu kinh doanh, file xuất, log: không đưa lên GitHub
+exports/
+logs/
+*.log
+*.xlsx
+*.xlsx#
+.~lock.*
+tests/integration/export_overview_sample.html
+
+# Claude Code: cấu hình cá nhân
+.claude/settings.local.json
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
